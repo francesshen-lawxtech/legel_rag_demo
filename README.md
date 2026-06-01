@@ -132,7 +132,9 @@ cp .env.example .env
 
 ```env
 OLLAMA_URL=http://localhost:11434
-LLM_MODEL=gemma3:latest
+LLM_MODEL=qwen2.5:3b
+EMBEDDING_MODEL=bge-m3:latest
+HF_TOKEN=hf_your_token_here   # 選填，HuggingFace token
 ```
 
 > 若不啟動 Ollama，API 仍可運作，`/ask` 端點會直接回傳召回條款並說明 LLM 不可用。
@@ -207,8 +209,8 @@ curl -X POST http://localhost:8088/ask \
 |------|------|------|
 | 向量資料庫 | ChromaDB | 輕量、本地部署、無需額外服務 |
 | 關鍵字搜尋 | SQLite FTS5 | 內建 BM25，零依賴，與主資料庫合一 |
-| LLM | Ollama (gemma3) | 完全本地、免費、資料不外傳 |
-| Embedding fallback | sentence-transformers | Ollama 不可用時自動切換 |
+| LLM | Ollama (qwen2.5:3b) | 完全本地、免費、資料不外傳，3B 輕量適合本機執行 |
+| Embedding | bge-m3 (Ollama) | 多語言向量模型，中文效果佳；fallback 至 sentence-transformers |
 | Web Framework | FastAPI | 自動生成 OpenAPI 文件，async 支援 |
 | 前端 | React + Vite + TypeScript | 快速開發，型別安全 |
 
