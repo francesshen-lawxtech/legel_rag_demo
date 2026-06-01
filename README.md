@@ -23,7 +23,7 @@
                                   │ Embedding
                          ┌────────▼────────┐
                          │  Ollama (本地)  │
-                         │  gemma3 / LLM   │
+                         │  bge-m3 / LLM   │
                          └─────────────────┘
 ```
 
@@ -44,7 +44,7 @@ RRF（Reciprocal Rank Fusion）以名次取代原始分數合併，天然解決 
 - **條款搜尋**：三種模式（BM25 / Vector / Hybrid）可切換對比
 - **RAG 問答**：召回相關條款後送本地 LLM 生成繁中答案，附條款出處引用
 - **合約風險分析**：Rule-based 掃描 HIGH / MEDIUM / LOW 風險條款（違約賠償、競業禁止、免責條款等）
-- **法規合規檢查**：對照勞基法、採購法、營業秘密法規定，標記潛在違規條款
+- **法規合規檢查**：對照勞動基準法、勞動基準法施行細則等規定，標記潛在違規條款
 - **RAG 合規檢查**：將法規全文也 ingest 進向量庫，由 LLM 自動對照判斷，取代 hardcoded 規則
 - **模式比較端點**：同一查詢同時回傳三種模式結果，方便並排展示
 
@@ -168,7 +168,7 @@ python app.py
 cd frontend
 npm install
 npm run dev
-# 前端運行於 http://localhost:5173
+# 前端運行於 http://localhost:5200
 ```
 
 ---
