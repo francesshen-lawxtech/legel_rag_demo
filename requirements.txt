@@ -1,0 +1,10 @@
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.0.0
+chromadb>=0.5.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+# Embedding fallback（Ollama 不可用時自動啟用）
+sentence-transformers>=3.0.0
+# PDF 解析
+pdfminer.six>=20221105
